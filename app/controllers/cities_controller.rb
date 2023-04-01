@@ -4,8 +4,8 @@ class CitiesController < ApplicationController
 
     respond_to do |format|
       if @result = @city.save
-        format.html { redirect_to city_url(@city), notice: "City was successfully created." }
-        format.json { render :show, status: :created, location: @city }
+        format.html { redirect_to root_url }
+        format.json { render :show, status: :created, location: root_url }
         format.js
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,6 +38,6 @@ class CitiesController < ApplicationController
   private
 
     def city_params
-      params.require(:city).permit(:name, :timezone)
+      params.require(:city).permit(:name)
     end
 end

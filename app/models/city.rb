@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require 'uri'
 
 class City < ApplicationRecord
   before_save   :downcase_name
@@ -16,7 +15,6 @@ class City < ApplicationRecord
       # TODO: Change units based on locale
       uri = URI("http://api.openweathermap.org/data/2.5/#{type}?q=#{CGI::escape(name)}&units=imperial&appid=#{api_key}")
 
-      # Download and parse the JSON from the api
       res = JSON.parse(Net::HTTP.get(uri))
     end
   end

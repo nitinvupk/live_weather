@@ -18,5 +18,8 @@ module LiveWeather
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    Timezone::Lookup.config(:geonames) do |c|
+      c.username = 'johnn'
+    end
   end
 end
