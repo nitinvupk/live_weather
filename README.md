@@ -6,19 +6,20 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+- ruby-3.1.2
 
-* System dependencies
+* Rails version
+-  6.1.7
 
-* Configuration
+* Database
+- sqlite3
 
 * Database creation
+- rails db:create
+- rails db:migration
+- rails db:seed
 
-* Database initialization
+* Start App
+- rails server
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
