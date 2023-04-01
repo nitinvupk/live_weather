@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
+# app/controllers/cities_controller.rb
 class CitiesController < ApplicationController
   def create
     @city = City.new(city_params)
 
     respond_to do |format|
-      if @result = @city.save
+      if (@result = @city.save)
         format.html { redirect_to root_url }
         format.json { render :show, status: :created, location: root_url }
-        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @city.errors, status: :unprocessable_entity }
-        format.js
       end
+      format.js
     end
   end
 
@@ -19,25 +21,24 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
 
     respond_to do |format|
-      if @result = @city.destroy
+      if (@result = @city.destroy)
         format.html { redirect_to root_url }
         format.json { head :no_content }
-        format.js
       else
-        format.html {
+        format.html do
           @city.errors.full_messages.each do |msg|
             flash[:danger] = msg
           end
           redirect_to root_url
-        }
-        format.js
+        end
       end
+      format.js
     end
   end
 
   private
 
-    def city_params
-      params.require(:city).permit(:name)
-    end
+  def city_params
+    params.require(:city).permit(:name)
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 City.create!(name: 'San Francisco', timezone: 'America/Los_Angeles')
 City.create!(name: 'Seattle', timezone: 'America/Los_Angeles')
 City.create!(name: 'Austin', timezone: 'America/Chicago')
