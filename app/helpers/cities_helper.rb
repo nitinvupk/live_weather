@@ -2,7 +2,7 @@ module CitiesHelper
   # Retrieves the current temperature from the api
   def temperature(name)
     res = City.get_weather(name)
-    res['main']['temp'].to_i if res['main']
+    res['main']['temp'].to_i
   end
 
   # Retrieves the forecast temperature from the api
