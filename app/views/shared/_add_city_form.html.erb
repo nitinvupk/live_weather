@@ -1,0 +1,8 @@
+<%= form_with(model: @city, id: 'add-city') do |f| %>
+  <div class="input-group align-middle" style="width: auto">
+    <%= f.text_field :name, class: 'form-control', placeholder: 'City Name' %>
+    <div class="input-group-append">
+      <%= f.submit 'Add City', data: { "disable-with": "Saving..." }, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

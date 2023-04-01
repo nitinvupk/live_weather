@@ -1,8 +1,29 @@
 en:
+  activerecord:
+    attributes:
+      city:
+        name: "City"
+    errors:
+      models:
+        city:
+          attributes:
+            name:
+              blank: "Name is required"
+              taken: "- %{value} is already being monitored"
   app:
-    name: Live Weather
+    name: Weather App
+    copyright: © All rights reserved Paul D'Amora
   menu:
     home: Home
     help: Help
     about: About
     contact: Contact
+    debug: Debug
+    add:
+      city_name: City Name
+      add_city: Add City
+  time:
+    am: am
+    formats:
+      short: "%a | %b %d | %I:%M %p"
+    pm: pm
