@@ -1,9 +1,9 @@
 <%= form_with model: [ @city, @city.comments.build ] do |form| %>
   <p>
     <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'form-control' %>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </p>
 <% end %>

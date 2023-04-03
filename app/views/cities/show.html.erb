@@ -1,8 +1,8 @@
-<h1><%= @city.name %></h1>
+<p>City Name: <%= @city.name %></p>
 
 <p><%= @city.timezone %></p>
 
-<h2>Comments</h2>
+<p><strong>All Comments</strong></p>
 <% @city.comments.each do |comment| %>
 
   <p>
@@ -11,6 +11,6 @@
   </p>
 <% end %>
 
-
-<h2>Add a comment:</h2>
+<hr>
+<p>Add a comment:</p>
 <%= render 'comments/form' %>
