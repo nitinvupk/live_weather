@@ -10,7 +10,7 @@ class City < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false },
                    length: { maximum: 50 }
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   class << self
     # Retrieves the weather json
