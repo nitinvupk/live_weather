@@ -1,4 +1,4 @@
-<div class="col-sm-3 weather-col" id="<%= css_id(city.name) %>-col">
+<div class="col-sm-3 weather-col mt-2" id="<%= css_id(city.name) %>-col">
   <div class="card text-center">
     <div class="card-body weather-card">
       <h4 class="card-title"><%= city.name.capitalize %></h4>
@@ -8,9 +8,9 @@
         <h1><%= temperature(city.name) %><span class="degree"></span></h1>
         <div class="forecast" id="<%= css_id(city.name) %>-forecast"><%= raw forecast(city.name) %></div>
       </div>
-    </div>
-    <div>
-      <%= link_to 'view', city_path(city)%>
+      <div>
+        <%= link_to 'view', city_path(city), class: "btn btn-outline-success" %>
+      </div>
     </div>
   </div>
 </div>
