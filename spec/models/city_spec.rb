@@ -1,21 +1,26 @@
 require 'rails_helper'
 
-# RSpec.describe City, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
-
-# require 'rails_helper'
-
 RSpec.describe City, type: :model do
-  context "validation tests" do
-    it 'ensures presence of name' do
-      city = City.new().save
-      expect(city).to eq(false)
-    end
+ describe 'validations' do
+  subject { described_class.new(name: 'New York', timezone: 'America/New_York') }
 
-    it 'should save successfully' do
-      city = City.new(name: 'New York', timezone: 'America/New_York').save
-      expect(city).to eq(true)
-    end
+  it 'is valid with valid attributes' do
+   expect(subject).to be_valid
   end
+
+  it 'is not valid without a name' do
+   subject.name = nil
+   expect(subject).not_to be_valid
+  end
+
+  it 'is not valid with a blank name' do
+   subject.name = ''
+   expect(subject).not_to be_valid
+  end
+
+  it 'is not valid with a name longer than 50 characters' do
+   subject.name = 'a' * 51
+   expect(subject).not_to be_valid
+  end
+ end
 end
