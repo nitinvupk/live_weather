@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   describe 'validations' do
-    city = City.create!(name: 'Bhopal')
-    user = User.create(email: 'john@gmail.com', password: '123456')
+    city = FactoryBot.create(:city)
+    user = FactoryBot.create(:user)
     subject { described_class.new(body: 'good', city_id: city.id, user_id: user.id) }
 
     it 'is valid with valid attributes' do

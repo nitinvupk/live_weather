@@ -7,7 +7,7 @@ require 'json'
 class City < ApplicationRecord
   before_save   :downcase_name
   before_create :add_timezone
-  validates :name, presence: true, uniqueness: { case_sensitive: false },
+  validates :name, presence: true,
                    length: { maximum: 50 }
 
   has_many :comments, dependent: :destroy
