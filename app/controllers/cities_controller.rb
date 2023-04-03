@@ -2,6 +2,8 @@
 
 # app/controllers/cities_controller.rb
 class CitiesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @city = City.new(city_params)
 

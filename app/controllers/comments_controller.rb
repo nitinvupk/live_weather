@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @city = City.find(params[:city_id])
     @comment = @city.comments.new(comment_params)
