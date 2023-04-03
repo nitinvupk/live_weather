@@ -1,12 +1,11 @@
 <div class="row scroll">
-  <% if current_user && @cities.present? %>
+  <% if current_user || @cities.present? %>
     <%= render @cities %>
   <% else %>
     <div class="card text-right" style="width: 18rem;">
       <div class="card-body">
         <p class="card-title">Welcome to Live Weather</p>
         <p class="card-text">Add city to check. Weather Information!</p>
-        <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary'%>
       </div>
     </div>
   <% end %>
