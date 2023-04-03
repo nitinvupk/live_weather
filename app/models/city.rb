@@ -10,6 +10,8 @@ class City < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false },
                    length: { maximum: 50 }
 
+  has_many :comments
+
   class << self
     # Retrieves the weather json
     def get_weather(name, type = 'weather')

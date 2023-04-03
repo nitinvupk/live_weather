@@ -9,5 +9,8 @@
         <div class="forecast" id="<%= css_id(city.name) %>-forecast"><%= raw forecast(city.name) %></div>
       </div>
     </div>
+    <div>
+      <%= link_to 'view', city_path(city)%>
+    </div>
   </div>
 </div>

@@ -7,14 +7,18 @@ class CitiesController < ApplicationController
 
     respond_to do |format|
       if (@result = @city.save)
-        format.html { redirect_to root_url }
+        format.html { redirect_to city_path(@city) }
         format.json { render :show, status: :created, location: root_url }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to root_path, status: :see_other }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
       format.js
     end
+  end
+
+  def show
+    @city = City.find(params[:id])
   end
 
   def destroy

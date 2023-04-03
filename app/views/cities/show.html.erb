@@ -1,0 +1,16 @@
+<h1><%= @city.name %></h1>
+
+<p><%= @city.timezone %></p>
+
+<h2>Comments</h2>
+<% @city.comments.each do |comment| %>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
