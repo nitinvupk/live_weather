@@ -10,14 +10,27 @@ services:
       - 5432:5432
     volumes:
       - postgres:/var/lib/postgresql/data
+  webpacker:
+    image: 'web1'
+    build:
+      context: .
+    ports:
+      - 3035:3035
   web:
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    image: 'web1'
+    build:
+      context: .
+      args:
+        precompileassets: "not"
+    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "./scripts/start_rails.sh"]
     volumes:
       - .:/Rails-Docker
     ports:
       - "3000:3000"
     depends_on:
       - db
+    links:
+      - db
+      - webpacker
 volumes:
   postgres:

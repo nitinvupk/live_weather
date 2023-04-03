@@ -1,12 +1,20 @@
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
+#   # username: rails
+#   # password: rails
+#   # host: localhost
+#   # port: 5432
+#   url: <%= ENV['DATABASE_URL'] %>
+
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  # username: rails
-  # password: rails
-  # host: localhost
-  # port: 5432
+  host: db
+  username: postgres
+  password: postgres
 
 development:
   <<: *default
